@@ -18,7 +18,10 @@
 #define PORTABLE_ALIGN32 __declspec(align(32))
 #endif
 
+#include "stdint.h"
+
 namespace hnswlib {
+    typedef uint64_t size_t; // To match the sizes in 32-bit and 64-bit environments
     typedef size_t labeltype;
 
     template<typename T>
