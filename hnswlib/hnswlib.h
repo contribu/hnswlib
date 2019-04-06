@@ -26,11 +26,13 @@ namespace hnswlib {
 
     template<typename T>
     static void writeBinaryPOD(std::ostream &out, const T &podRef) {
+        static_assert(std::is_fundamental<T>::value, "writeBinaryPOD only accept primitive type");
         out.write((char *) &podRef, sizeof(T));
     }
 
     template<typename T>
     static void readBinaryPOD(std::istream &in, T &podRef) {
+        static_assert(std::is_fundamental<T>::value, "readBinaryPOD only accept primitive type");
         in.read((char *) &podRef, sizeof(T));
     }
 
